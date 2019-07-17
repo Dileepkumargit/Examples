@@ -16,13 +16,13 @@ public class selectresult {
 	}
 
 	public List<String> getallresults() {
-		List<WebElement> allresults = driver.findElements(By.xpath("//div[@class='_3wU53n']"));
+		List<WebElement> allresults = driver.findElements(By.xpath("//div[@class='_3O0U0u']//descendant::div[@class='_3wU53n']"));
 		return allresults.stream().map(a -> a.getText()).distinct().collect(Collectors.toList());
 	}
 
-	public void selestedresult(String selecteResult) {
-		
-		driver.findElement(By.xpath("//a[@class='_31qSD5']")).click();
+	public void select(String selecte) throws InterruptedException {
+		driver.findElement(By.xpath("//div[text()='"+selecte+"']")).click();
+				
 	}
 
 }
