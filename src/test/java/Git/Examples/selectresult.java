@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 public class selectresult {
 	WebDriver driver;
 	
-	selectresult(WebDriver driver)
+	public selectresult(WebDriver driver)
 	{
 		this.driver = driver;
 	}

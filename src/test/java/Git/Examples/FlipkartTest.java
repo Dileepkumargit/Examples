@@ -10,6 +10,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import javax.print.attribute.standard.PageRanges;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -21,7 +23,8 @@ import org.openqa.selenium.interactions.internal.Locatable;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Flipkart {
+public class FlipkartTest {
+
 
 	public static void main(String[] args) throws AWTException, InterruptedException {
 		 System.setProperty("webdriver.chrome.driver", "E:\\chrormeDriver\\chromedriver.exe");
@@ -40,15 +43,33 @@ public class Flipkart {
 	 	   String brands = allbrands.get(new Random().ints(0,allbrands.size()-1).findFirst().getAsInt());
 	 	   System.out.println(brands);
 	       facet.selectbrand(brands);
-	 	   Thread.sleep(10000);
-	 	   	 	   
+	 	   Thread.sleep(5000);
+
+	       driver.findElement(By.xpath("//div[text()='Internal Storage']")).click();
+	       storagefacet SF = new storagefacet(driver);
+	       List<String> allSF = SF.getallstoragefacets();
+	       System.out.println(allSF.toString());
+	       String Selectfacet = allSF.get(new Random().ints(0,allSF.size()-1).findFirst().getAsInt());
+	       System.out.println(Selectfacet);
+	       SF.Selectstoragefacet(Selectfacet);
+	       
+	 	   pages page = new pages(driver);
+	 	   List<String> allpages = page.getallpages();
+	 	   System.out.println(allpages.toString());
+	 	   String pagenumber = allpages.get(new Random().ints(0,allpages.size()-1).findFirst().getAsInt());
+	 	   System.out.println(pagenumber);
+	 	   page.selectpage(pagenumber);
+	 	   
+	 	  
+	 	   	 Thread.sleep(10000);   
 	        selectresult pick = new selectresult(driver);
 	        List<String> results = pick.getallresults();
 	        System.out.println(results.toString());
 	        String selecteResult = results.get(new Random().ints(0,results.size()-1).findFirst().getAsInt());
 	        System.out.println(selecteResult);
 	        pick.select(selecteResult);	   
-	        Thread.sleep(10000);
+	        Thread.sleep(5000);
+	        
 	        //((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 500)");
 	        
 	       	        
@@ -56,21 +77,19 @@ public class Flipkart {
 	        Set<String> Tabs = driver.getWindowHandles();
 	        List<String> NewWindow = new ArrayList<>(Tabs);
 	        driver.switchTo().window(NewWindow.get(0));
-	       
 	        Thread.sleep(3000);
-	        selectresult pick1 = new selectresult(driver);
+	        
+
+	        /*selectresult pick1 = new selectresult(driver);
 	        List<String> results1 = pick1.getallresults();
 	        //System.out.println(results1.toString());
 	        String selecteResult1 = results1.get(new Random().ints(0,results1.size()-1).findFirst().getAsInt());
 	        System.out.println(selecteResult1);
 	        pick1.select(selecteResult1);	
 	        Thread.sleep(5000);
-	        driver.findElement(By.linkText("Contact Us")).click();
-	        
-	       // driver.findElement(By.xpath("//li[@class='col col-6-12']//descendant::button[@class='_2AkmmA _2Npkh4 _2MWPVK']")).click();
-	        Thread.sleep(10000);
+	       
 	        driver.switchTo().window(NewWindow.get(1));
-	        driver.findElement(By.xpath("//button[@class='_2AkmmA _2Npkh4 _2MWPVK']")).click();
+	        driver.findElement(By.xpath("//button[@class='_2AkmmA _2Npkh4 _2MWPVK']")).click(); */
 	       
 	}
 

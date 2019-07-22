@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class facets {
 	 WebDriver driver;
-	 facets(WebDriver driver)
+	 public facets(WebDriver driver)
 	 {
 		 this.driver=driver;
 	 }
