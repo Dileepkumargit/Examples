@@ -17,6 +17,7 @@ public class Mouse {
 		return facet.stream().map(a->a.getText()).distinct().collect(Collectors.toList());
 	}
 	public void select(String pick) {
+		
 		driver.findElement(By.xpath("//a[text()='"+pick+"']")).click();
 		
 	}
