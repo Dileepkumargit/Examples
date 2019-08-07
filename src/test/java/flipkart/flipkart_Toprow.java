@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 public class flipkart_Toprow {
 
 	public static void main(String[] args) throws InterruptedException {
+		
 		System.setProperty("webdriver.chrome.driver", "E:\\chrormeDriver\\chromedriver.exe");
 	    WebDriver driver = new ChromeDriver();
 		
@@ -20,7 +21,7 @@ public class flipkart_Toprow {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("html/body/div[2]/div/div/button")).click();
-        
+        Thread.sleep(2000);
         Top facets = new Top(driver);
         List<String> allElements = facets.getallelements();
         System.out.println(allElements.toString());
