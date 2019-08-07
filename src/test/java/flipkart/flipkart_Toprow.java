@@ -21,7 +21,7 @@ public class flipkart_Toprow {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath("html/body/div[2]/div/div/button")).click();
-        Thread.sleep(2000);
+        
         Top facets = new Top(driver);
         List<String> allElements = facets.getallelements();
         System.out.println(allElements.toString());
